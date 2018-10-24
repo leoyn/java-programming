@@ -48,5 +48,7 @@ public class Task10 {
 		System.out.println("=========================");
 		System.out.println("Netto............." + total + CURRENCY);
 		System.out.println("Brutto............" + total * 0.81 + CURRENCY);
+		
+		ioScanner.close();
 	}
 }

@@ -17,6 +17,8 @@ public class Task7 {
 		
 		// Output parsed time to console
 		System.out.println(parsedTime.hours + ":" + parsedTime.minutes + ":" + parsedTime.seconds);
+		
+		ioScanner.close();
 	}
 	
 	public static Time parseTime(int timeInSeconds) {

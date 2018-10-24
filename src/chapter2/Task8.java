@@ -28,6 +28,8 @@ public class Task8 {
 		long y = calcY(a, b, c, d, x);
 		System.out.println("y = " + a + " * " + x + "^3 + " + b + " * " + x + "^2 + " + c + " * " + x + " + " + d);
 		System.out.println("y = " + y);
+		
+		ioScanner.close();
 	}
 	
 	public static long calcY(int a, int b, int c, int d, int x) {

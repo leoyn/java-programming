@@ -31,5 +31,7 @@ public class Task11 {
 	
 		// Print total
 		System.out.println("Das Einkommen von Herrn und Frau Clever beträgt: " + incomePerPerson * 2);
+		
+		ioScanner.close();
 	}
 }

@@ -30,6 +30,8 @@ public class Task9 {
 		
 		// Output distance
 		System.out.println("Distance between points: " + distance);
+		
+		ioScanner.close();
 	}
 	
 	public static int calcDistance(Point point1, Point point2) {
