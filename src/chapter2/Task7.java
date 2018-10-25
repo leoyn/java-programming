@@ -25,11 +25,9 @@ public class Task7 {
 		// Initiate and create time Object
 		Time time = new Time();
 		
-		int leftMinutes = timeInSeconds % 3600;
-		time.hours = (timeInSeconds - leftMinutes) / 3600;
-		
-		time.seconds = leftMinutes % 60;
-		time.minutes = (leftMinutes - time.seconds) / 60;
+		time.hours = timeInSeconds / 3600;		
+		time.minutes = timeInSeconds % 3600 / 60;
+		time.seconds = timeInSeconds % 60;
 				
 		// Return time to main method
 		return time;
