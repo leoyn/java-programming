@@ -12,26 +12,45 @@ public class Task11 {
 	public static void main(String[] args) {
 		Scanner ioScanner = new Scanner(System.in);
 		
+		System.out.println("Frau Clever:");
+		
 		// Read speech amount
 		System.out.print("Anzahl der Reden: ");
-		int speechCounter = ioScanner.nextInt();
+		int speechCounterF = ioScanner.nextInt();
 		
 		// Read secretary work hours
 		System.out.print("Sekretariatsarbeitsstunden: ");
-		int secretaryWork = ioScanner.nextInt();
+		int secretaryWorkF = ioScanner.nextInt();
 		
-		// bonus after 5th speech
-		int extraSpeechMoney = 0;
+		System.out.println("––––––––––––––––––––––");
+		System.out.println("Herr Clever:");
 		
-		// add bonus after 5th speech
-		if(speechCounter > SPEECH_BONUS_THRESHOLD) extraSpeechMoney = (speechCounter - SPEECH_BONUS_THRESHOLD) * SPEECH_WAGE_BONUS_AFTER_5TH_SPEACH;
+		System.out.print("Anzahl der Reden: ");
+		int speechCounterM = ioScanner.nextInt();
 		
-		// Sum up all values
-		int incomePerPerson = BASIC_INCOME + secretaryWork * SECRETARY_WAGE + speechCounter * SPEECH_WAGE + extraSpeechMoney;
-	
-		// Print total
-		System.out.println("Das Einkommen von Herrn und Frau Clever beträgt: " + incomePerPerson * 2);
+		// Read secretary work hours
+		System.out.print("Sekretariatsarbeitsstunden: ");
+		int secretaryWorkM = ioScanner.nextInt();
+		
+		System.out.println("––––––––––––––––––––––");
+		
+		int sum = calculateIncomeForPerson(speechCounterF, secretaryWorkF) + calculateIncomeForPerson(speechCounterM, secretaryWorkM);
+		System.out.println("Das Einkommen von Herrn und Frau Clever beträgt: " + sum);
 		
 		ioScanner.close();
+	}
+	
+	public static int calculateIncomeForPerson(int speechCounter, int secretaryWork) {
+		// bonus after 5th speech
+		int extraSpeechMoney = 0;
+				
+		// add bonus after 5th speech
+		if(speechCounter > SPEECH_BONUS_THRESHOLD) extraSpeechMoney = (speechCounter - SPEECH_BONUS_THRESHOLD) * SPEECH_WAGE_BONUS_AFTER_5TH_SPEACH;
+				
+		// Sum up all values
+		int incomePerPerson = BASIC_INCOME + secretaryWork * SECRETARY_WAGE + speechCounter * SPEECH_WAGE + extraSpeechMoney;
+			
+		// return total of person
+		return incomePerPerson;
 	}
 }
