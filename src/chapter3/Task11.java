@@ -1,6 +1,8 @@
 package chapter3;
 import java.util.Scanner;
 
+// Schnittpunktberechner
+
 public class Task11 {
 	public static void main(String[] args) {
 		Scanner ioScanner = new Scanner(System.in);

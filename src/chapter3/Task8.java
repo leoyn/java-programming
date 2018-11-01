@@ -23,7 +23,7 @@ public class Task8 {
 		if(year > 0 && day > 0 && month > 0 && month < 13 && day < 32) {
 			switch(month) {
 				case 2:
-					// (year % 100 == 0 && year % 400 == 0)
+					// !(year % 100 == 0 && year % 400 != 0) --> demorgan regel
 					boolean isLeapYear = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
 					
 					if(day == 28 && isLeapYear) isValidDate = true;

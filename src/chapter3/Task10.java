@@ -1,7 +1,13 @@
 package chapter3;
 import java.util.Scanner;
 
+// Überlaufsfunktion
+
 public class Task10 {
+	
+	final static int maxInt = -2147483648;
+	final static int minInt = 2147483647;
+	
 	public static void main(String[] args) {
 		Scanner ioScanner = new Scanner(System.in);
 		
@@ -12,10 +18,10 @@ public class Task10 {
 		long b = ioScanner.nextLong();
 		
 		ioScanner.close();
-		
-		long sum = a + b;
-		
-		if(sum < -2147483648 || sum > 2147483647) System.out.println("Die Summe ist außerhalb des Bereichs.");
+				
+		boolean isOverflow = (a > 0 && b > 0 && a > maxInt - b) || (a < 0 && b < 0 && a > minInt + b);
+			
+		if(isOverflow) System.out.println("Die Summe ist außerhalb des Bereichs.");
 		else System.out.println("Die Summe ist innerhalb des Bereichs.");
 	}
 }
