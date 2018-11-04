@@ -20,7 +20,7 @@ public class Task2 {
 		
 		boolean isValidTriangle = (a + b > c) && (a + c > b) && (b + c > a);
 		boolean isEqTriangle = (a == b && a == c);
-		boolean hasRightAngle = (Math.sqrt(a * a + b * b) == c);
+		boolean hasRightAngle = (a * a + b * b == c * c || c * c + b * b == a * a || a * a + c * c == b * b);
 		
 		String properties = "UNGÜLTIGES";
 		

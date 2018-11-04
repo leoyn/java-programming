@@ -17,7 +17,7 @@ public class Task1 {
 		ioScanner.close();
 				
 		boolean areNotAllTheSameValue = (x - y != z - y);
-		boolean areAllDifferentValues = (x != y) && (x != z) && (x != y);
+		boolean areAllDifferentValues = (x != y) && (x != z) && (z != y);
 		boolean twoHaveTheSameValue = (x == y) || (x == z) || (y == z);
 		
 		if(areNotAllTheSameValue) System.out.println("x, y, z haben nicht alle die gleichen Werte.");

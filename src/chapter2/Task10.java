@@ -33,21 +33,24 @@ public class Task10 {
 		
 		// initialize wage since its used in an if/else statement
 		int wage;
-		if(workingHours > OVERTIME_THRESHOLD) wage = WAGE_PER_HOUR * OVERTIME_THRESHOLD + (workingHours - OVERTIME_THRESHOLD) * OVERTIME_WAGE_PER_HOUR;
-		else wage = workingHours * WAGE_PER_HOUR;
+		int overtimeWage = 0;
+		if(workingHours > OVERTIME_THRESHOLD) {
+			wage = WAGE_PER_HOUR * OVERTIME_THRESHOLD;
+			overtimeWage = (workingHours - OVERTIME_THRESHOLD) * OVERTIME_WAGE_PER_HOUR;
+		} else wage = workingHours * WAGE_PER_HOUR;
 
 		// total wage
-		int total = (wage + cablePrice);
+		int total = (wage + overtimeWage + cablePrice);
 		
 		// Print 
 		System.out.println();
 		System.out.println("––––––– RECHNUNG ––––––––");
 		System.out.println("Kabelpreis........" + cablePrice + CURRENCY);
 		System.out.println("Stundenlohn......." + wage + CURRENCY);
-		System.out.println("Überstundenlohn..." + (wage - WAGE_PER_HOUR * OVERTIME_THRESHOLD) + CURRENCY);
+		System.out.println("Überstundenlohn..." + overtimeWage + CURRENCY);
 		System.out.println("=========================");
 		System.out.println("Netto............." + total + CURRENCY);
-		System.out.println("Brutto............" + total * 0.81 + CURRENCY);
+		System.out.println("Brutto............" + (int) ((total * 0.81 + 0.005) * 100) / 100f + CURRENCY);
 		
 		ioScanner.close();
 	}

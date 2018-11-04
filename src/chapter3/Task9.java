@@ -9,7 +9,7 @@ public class Task9 {
 		Scanner ioScanner = new Scanner(System.in);
 		
 		System.out.print("Tag:");
-		int day = ioScanner.nextInt();
+		int day = ioScanner.nextInt() - 1; // index ranges from 0 to 6, because x % 7 will never have a 7
 		
 		System.out.print("Monat:");
 		int month = ioScanner.nextInt();
@@ -23,9 +23,9 @@ public class Task9 {
 		
 		ioScanner.close();
 		
-		if(firstDayOfWeek < 8 && firstDayOfWeek > 0) {
+		if(firstDayOfWeek < 7 && firstDayOfWeek > -1) {
 		
-			int days = 0;		
+			int days = firstDayOfWeek + day - 1; // we don't want to add any days for the first day of month 
 			if(month > 2 && year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) days++;
 				
 			switch(month) {
@@ -64,10 +64,9 @@ public class Task9 {
 					break;
 			}
 			String dayOfWeekString = "";
-			int dayOfWeek = (days % 7 + firstDayOfWeek - 1) % 7;
-		
+			days = days % 7;
 			
-			switch(dayOfWeek) {
+			switch(days) {
 				case 0:
 					dayOfWeekString = "Montag";
 					break;
@@ -91,7 +90,7 @@ public class Task9 {
 					break;
 			}
 			
-			System.out.println("Der Tag am " + day + "." + month + "." + year + " ist ein " + dayOfWeekString);
+			System.out.println("Der Wochentag am " + day + "." + month + "." + year + " ist ein " + dayOfWeekString);
 		}
 	}
 }

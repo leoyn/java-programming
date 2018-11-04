@@ -12,14 +12,14 @@ public class Task10 {
 		Scanner ioScanner = new Scanner(System.in);
 		
 		System.out.print("a = ");
-		long a = ioScanner.nextLong();
+		int a = ioScanner.nextInt();
 		
 		System.out.print("b = ");
-		long b = ioScanner.nextLong();
+		int b = ioScanner.nextInt();
 		
 		ioScanner.close();
 				
-		boolean isOverflow = (a > 0 && b > 0 && a > maxInt - b) || (a < 0 && b < 0 && a > minInt + b);
+		boolean isOverflow = (a > 0 && b > 0 && a > maxInt - b) || (a < 0 && b < 0 && a < minInt - b); // a + b > maxInt || a + b < minInt
 			
 		if(isOverflow) System.out.println("Die Summe ist außerhalb des Bereichs.");
 		else System.out.println("Die Summe ist innerhalb des Bereichs.");
