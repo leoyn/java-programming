@@ -19,11 +19,11 @@ public class Task4 {
 		
 		ioScanner.close();
 		
-		System.out.println("Start capital: " + ((int) ((capital + 0.005) * 100 )) / 100f + "€");
+		System.out.println("Start capital: " + ((int) capital + (int) ((capital - (int) capital + 0.005) * 100) / 100f) + "€");
 		
 		for(int i = 1; i < timespan + 1; i++) {
 			capital *= 1 + interest;
-			System.out.println("Year: " + i + " | Capital: " + ((int) ((capital + 0.005) * 100 )) / 100f + "€");
+			System.out.println("Year: " + i + " | Capital: " + ((int) capital + (int) ((capital - (int) capital + 0.005) * 100) / 100f) + "€");
 		}
 		
 		
