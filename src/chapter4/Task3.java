@@ -12,7 +12,7 @@ public class Task3 {
 		
 		int sumOfNumber = 0;
 		
-		while(x != 0) {
+		while(x > 0) {
 			sumOfNumber += x % 10;
 			x = x / 10;
 		}

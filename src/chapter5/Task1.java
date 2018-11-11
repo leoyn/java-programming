@@ -3,7 +3,7 @@ package chapter5;
 
 public class Task1 {
 	
-	final static double tolerance = 0.0000025;
+	final static double tolerance = 0.0000025; // because we multiply by 4
 	
 	public static void main(String[] args) {
 		

@@ -28,7 +28,7 @@ public class Task7 {
 		time.hours = timeInSeconds / 3600;		
 		time.minutes = timeInSeconds % 3600 / 60;
 		time.seconds = timeInSeconds % 60;
-				
+
 		// Return time to main method
 		return time;
 	}

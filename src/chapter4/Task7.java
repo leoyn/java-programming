@@ -6,32 +6,28 @@ public class Task7 {
 		Scanner ioScanner = new Scanner(System.in);
 		
 		int x = ioScanner.nextInt();
-		int max = x;
 		
 		ioScanner.close();
 					
 		int i = 2;
-		while(max > 1 && i <= x) {
+		while(x > 1) {
 					
 			boolean isPrime = true;
 				
-			for(int j = 2; j <= max; j++) {
+			for(int j = 2; j <= x; j++) {
 				if(i != j && i % j == 0) {
 					isPrime = false;
 					break;
 				}
 			}
 				
-			if(max % i == 0 && isPrime) {
+			if(x % i == 0 && isPrime) {
 				System.out.println(i);
-				max = max / i;
+				x = x / i;
 				i = 1;
 			}
 			
 			i++;
 		}
-		// max =< 1 || i > x
-		
-		if(i > x) System.out.println(x + " kann nicht in Primzahlen zerlegt werden.");
 	}
 }

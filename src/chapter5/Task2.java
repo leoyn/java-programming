@@ -22,7 +22,7 @@ public class Task2 {
 			double previousProduct = x; // since f(0) = x
 			double product; // no value assigned, because it will only be read after first value has already been assigned in loop
 			
-			for(int i = 1; i < n + 1; i++) { // start at 1, because you cannot divide by 0
+			for(int i = 1; i < n; i++) { // start at 1, because you cannot divide by 0
 				product = previousProduct * k(i, x);
 				sum += product;
 				previousProduct = product;
