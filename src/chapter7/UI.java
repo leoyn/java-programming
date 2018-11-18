@@ -1,6 +1,6 @@
 package chapter7;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 
 public class UI {
 	private JFrame frame;
