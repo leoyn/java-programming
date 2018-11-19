@@ -19,14 +19,12 @@ public class Canvas extends JPanel {
 		this.grid = grid;
 	}
 	
-	@Override
 	protected void paintComponent(Graphics g) {
-		super.paintComponent(g);
-        
+		
 		g.clearRect(0, 0, grid.length * cellSize, grid.length * cellSize);
         
 		for(int y = 0; y < grid.length; y++) {
-			for(int x = 0; x < grid.length; x++) {
+			for(int x = 0; x < grid[y].length; x++) {
 				if(grid[y][x]) g.setColor(Color.BLACK);
 				else g.setColor(Color.WHITE);
 				g.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
