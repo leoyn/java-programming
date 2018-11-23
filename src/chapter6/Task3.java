@@ -18,7 +18,9 @@ public class Task3 {
 		int index = 0;
 		
 		while(binarySequence > 0) {
-			if(binarySequence % 10 == 1) decimalNumber += Math.pow(2, index);
+			int r = (int) binarySequence % 10;
+			if(r == 1) decimalNumber += Math.pow(2, index);
+			else if(r > 1) return -1;
 			binarySequence /= 10;
 			index++;
 		}

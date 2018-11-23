@@ -1,4 +1,4 @@
-package chapter7;
+package chapter7.Task8;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -79,5 +79,14 @@ public class UI {
 		
 		canvas.setGrid(history[historyIndex]);
 		canvas.repaint();
+	}
+	
+	public void loop() throws InterruptedException {
+		while(true) {
+			Thread.sleep(10);
+			historyIndex++;
+			update();
+			if(historyIndex == history.length - 1) historyIndex = 0;
+		}
 	}
 }

@@ -1,9 +1,9 @@
-package chapter7;
+package chapter7.Task8;
 
 public class GameOfLife {
 	
 	final static int N = 20;
-	final static int LIFETIME = 10;
+	final static int LIFETIME = 50;
 	
 	public static void main(String[] args) throws InterruptedException {
 		
@@ -25,28 +25,40 @@ public class GameOfLife {
 					} else if(aliveNeighbors == 3) tickGrid[y][x] = true;
 				}
 			}
-			
+						
 			grid = tickGrid;
 						
 			ui.addGrid(grid, ++tick);
 		}
+		
+		//ui.loop();
 	}
 	
 	public static byte getAliveNeighbors(boolean[][] grid, int x, int y) {
 		
 		byte aliveNeighbors = 0;
 		
+		int right = 0;
+		int left = grid.length - 1;
+		int top = grid.length - 1;
+		int bottom = 0;
+		
+		if(x < grid.length - 1) left = x + 1;
+		if(x > 0) left = x - 1;
+		if(y > 0) top = y - 1;
+		if(y < grid.length - 1) bottom = y + 1;
+		
 		// direct
-		if(x > 1 && grid[y][x-1]) aliveNeighbors++;
-		if(x < grid[y].length-1 && grid[y][x+1]) aliveNeighbors++;
-		if(y > 1 && grid[y-1][x]) aliveNeighbors++;
-		if(y < grid.length-1 && grid[y+1][x]) aliveNeighbors++;
+		if(grid[y][left]) aliveNeighbors++;
+		if(grid[y][right]) aliveNeighbors++;
+		if(grid[top][x]) aliveNeighbors++;
+		if(grid[bottom][x]) aliveNeighbors++;
 		
 		// diagonal
-		if(y > 1 && x > 1 && grid[y-1][x-1]) aliveNeighbors++;
-		if(y < grid.length-1 && x < grid[y].length-1 && grid[y+1][x+1]) aliveNeighbors++;
-		if(y > 1 && x < grid[y].length-1 && grid[y-1][x+1]) aliveNeighbors++;
-		if(y < grid.length-1 && x > 1 && grid[y+1][x-1]) aliveNeighbors++; 
+		if(grid[top][left]) aliveNeighbors++;
+		if(grid[bottom][right]) aliveNeighbors++;
+		if(grid[top][right]) aliveNeighbors++;
+		if(grid[bottom][left]) aliveNeighbors++; 
 		
 		return aliveNeighbors;
 	}

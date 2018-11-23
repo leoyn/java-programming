@@ -1,4 +1,4 @@
-package chapter7;
+package chapter7.Task8;
 
 import java.awt.Color;
 import java.awt.Graphics;
