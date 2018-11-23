@@ -20,7 +20,7 @@ public class Task3 {
 		while(binarySequence > 0) {
 			int r = (int) binarySequence % 10;
 			if(r == 1) decimalNumber += Math.pow(2, index);
-			else if(r > 1) return -1;
+			else if(r != 0) return -1;
 			binarySequence /= 10;
 			index++;
 		}

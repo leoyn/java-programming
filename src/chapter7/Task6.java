@@ -29,19 +29,19 @@ public class Task6 {
 		
 		for(int i = 0; i < matrix.length; i++) {
 			int rowSum = 0;
-			int lastColumn = 0;
+			int lastColumnSum = 0;
 			
 			for(int j = 0; j < matrix[i].length; j++) {
 				rowSum += matrix[i][j];
 				columnSum[j] += matrix[i][j];
 				
 				if(i == j) diagonalSum[0] += matrix[j][j];
-				else if(matrix.length - 1 - j == matrix.length - 1 - i) diagonalSum[1] += matrix[i][j];
+				if(matrix.length - 1 - j == matrix.length - 1 - i) diagonalSum[1] += matrix[i][j];
 				
 				if(i == matrix.length - 1) {
-					if(j != 0 && lastColumn != columnSum[j]) return false;
+					if(j != 0 && lastColumnSum != columnSum[j]) return false;
 						
-					lastColumn = columnSum[j];
+					lastColumnSum = columnSum[j];
 				}
 			}
 			
@@ -50,7 +50,7 @@ public class Task6 {
 			lastRowSum = rowSum;
 		}
 		
-		if(diagonalSum[0] != diagonalSum[0]) return false;
+		if(diagonalSum[0] != diagonalSum[1]) return false;
 		
 		return true;
 	}
