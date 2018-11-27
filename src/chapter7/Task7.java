@@ -1,17 +1,15 @@
 package chapter7;
 
-import java.util.Scanner;
-
 public class Task7 {
 	public static void main(String[] args) {
-		Scanner ioScanner = new Scanner(System.in);
 		
-		int n = ioScanner.nextInt();
+		byte[] stream = new byte[] {1, 3, 2, 3, 4, 5, 8, 8, 9};
 		
-		ioScanner.close();
 		
-		byte[][] matrix = new byte[n][n];
-		byte[] stream = new byte[] {1, 3, 2, 3, 4, 5, 6, 6};
+		double dimension = Math.sqrt(stream.length);
+		if(dimension - (int) dimension > 0) dimension++;
+		
+		byte[][] matrix = new byte[(int) dimension][(int) dimension];
 		
 		if(transform(stream, matrix)) {
 			printStream(getStream(matrix));
@@ -28,7 +26,7 @@ public class Task7 {
 		byte[] stream = new byte[matrix.length * matrix.length];
 		
 		for(int i = 0; i < stream.length; i++) {
-			stream[i] = matrix[i % 3][i / 3];
+			stream[i] = matrix[i % matrix.length][i / matrix.length];
 		}
 		
 		return stream;

@@ -14,7 +14,7 @@ public class GameOfLife {
 		
 		while(tick < LIFETIME) {
 			
-			boolean[][] tickGrid = grid;
+			boolean[][] tickGrid = grid.clone();
 			
 			for(int y = 0; y < grid.length; y++) {
 				for(int x = 0; x < grid[y].length; x++) {

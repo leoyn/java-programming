@@ -26,10 +26,11 @@ public class Task6 {
 		int[] diagonalSum = new int[2];
 		int[] columnSum = new int[matrix.length];
 		int lastRowSum = 0;
+		int lastColumnSum = 0;
 		
 		for(int i = 0; i < matrix.length; i++) {
 			int rowSum = 0;
-			int lastColumnSum = 0;
+			lastColumnSum = 0;
 			
 			for(int j = 0; j < matrix[i].length; j++) {
 				rowSum += matrix[i][j];
@@ -50,7 +51,7 @@ public class Task6 {
 			lastRowSum = rowSum;
 		}
 		
-		if(diagonalSum[0] != diagonalSum[1]) return false;
+		if(lastColumnSum != lastRowSum || diagonalSum[0] != lastRowSum || diagonalSum[0] != diagonalSum[1]) return false;
 		
 		return true;
 	}

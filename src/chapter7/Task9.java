@@ -54,7 +54,7 @@ public class Task9 {
 				}
 				matrix[i][j] = Math.round(matrix[i][j]);
 			}
-			matrix[i][matrix.length-1] = Math.round(matrix[i][matrix.length-1]);
+			matrix[i][matrix.length - 1] = Math.round(matrix[i][matrix.length - 1]);
 		}
 	}
 	
