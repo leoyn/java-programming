@@ -2,10 +2,10 @@ package chapter7;
 
 public class Task16 {
 	public static void main(String[] args) {
-		System.out.println(poly(4, new int[] {1, 3, 2}));
+		System.out.println(poly(4, 1, 3, 2));
 	}
 	
-	public static int poly(int x, int[] params) {
+	public static int poly(int x, int... params) {
 		
 		int y = 0;
 		

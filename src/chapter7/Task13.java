@@ -8,8 +8,8 @@ public class Task13 {
 	public static int negativeValues(int[] array) {
 		int count = 0;
 		
-		for(int i = 0; i < array.length; i++) {
-			if(array[i] < 0) count++;
+		for(int number : array) {
+			if(number < 0) count++;
 		}
 		
 		return count;
