@@ -3,8 +3,10 @@ package chapter7;
 public class Task7 {
 	public static void main(String[] args) {
 		
-		byte[] stream = new byte[] {1, 3, 2, 3, 4, 5, 8, 8, 9};
+		byte[] stream = new byte[] {1, 2, 3, 4, 5, 6, 7, 8};
 		
+		printStream(stream);
+		System.out.println();
 		
 		double dimension = Math.sqrt(stream.length);
 		if(dimension - (int) dimension > 0) dimension++;

@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class UI {
-	private static final int CELL_SIZE = 10;
+	private static final int CELL_SIZE = 20;
 	
 	private JLabel tickLabel;
 	private JButton nextBtn;

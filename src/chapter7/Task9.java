@@ -2,12 +2,12 @@ package chapter7;
 
 public class Task9 {
 	public static void main(String[] args) {
-		double[][] matrix = new double[][] {{2, 2, 3, -1}, {2, 3, 4, -2}, {-3, 4, 5, -3}};
+		double[][] matrix = new double[][] {{1, 0, 3, -1}, {0, 0, 4, -2}, {0, 4, 5, -3}};
 		
 		normalizeMatrix(matrix);
 				
 		for(int i = 0; i < matrix.length; i++) {
-			for(int j = i+1; j < matrix.length; j++) {
+			for(int j = i + 1; j < matrix.length; j++) {
 				if(matrix[j][i] != 0) {
 					normalizeRow(matrix, i);
 					multiplyRow(matrix, i, matrix[j][i]);

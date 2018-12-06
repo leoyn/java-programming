@@ -43,7 +43,7 @@ public class GameOfLife {
 		int top = grid.length - 1;
 		int bottom = 0;
 		
-		if(x < grid.length - 1) left = x + 1;
+		if(x < grid.length - 1) right = x + 1;
 		if(x > 0) left = x - 1;
 		if(y > 0) top = y - 1;
 		if(y < grid.length - 1) bottom = y + 1;
@@ -69,7 +69,7 @@ public class GameOfLife {
 		
 		for(int y = 0; y < n; y++) {
 			for(int x = 0; x < n; x++) {
-				if(Math.random() > 0.5) grid[y][x] = true;
+				grid[y][x] = Math.random() > 0.5;
 			}
 		}
 		
