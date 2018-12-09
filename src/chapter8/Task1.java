@@ -36,9 +36,11 @@ public class Task1 {
 	
 	public static int log16(int number) {
 		int log = 0;
+		int x = 1;
 		
-		while(number / Math.pow(16, log) >= 1) {
+		while(number / x >= 1) {
 			log++;
+			x *= 16;
 		}
 		
 		return log;

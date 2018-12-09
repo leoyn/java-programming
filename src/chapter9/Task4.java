@@ -23,7 +23,8 @@ public class Task4 {
 				count++;
 			} else {
 				sb.append(lastChar);
-				if(count > 1) sb.append(count);
+				if(count > 2) sb.append(count);
+				else if (count == 2) sb.append(lastChar);
 				count = 1;
 			}
 		}
@@ -47,8 +48,8 @@ public class Task4 {
 						countSb.append(s.charAt(index));
 						index++;
 					}
-										
 					if(index > i + 1) count = Integer.parseInt(countSb.toString());
+					if(count == 2) throw new Error("Parsing error near '" + currentChar + count +  "' at index " + index);
 				}
 				
 				for(int j = 0; j < count; j++) {

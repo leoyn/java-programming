@@ -38,7 +38,10 @@ public class Task3 {
 					}
 					break;
 				case 2:
-					if(currentChar == '\n') state = 0;
+					if(currentChar == '\n') {
+						writer.print("\n");
+						state = 0;
+					}
 					break;
 				case 3:
 					if(lastChar == '*' && currentChar == '/') state = 0;
@@ -47,7 +50,7 @@ public class Task3 {
 			
 			lastChar = currentChar;
 		}
-		
+
 		ioScanner.close();
 		writer.close();
 		
