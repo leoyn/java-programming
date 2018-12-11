@@ -1,5 +1,11 @@
 package chapter8;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+
 public class Task4 {
 	public static void main(String[] args) {
 		char[][] text = new char[][] {{'H', 'e', 'l', 'l', 'o'}, {'W', 'o', 'r', 'l', 'd'}, {'Ä', 'p', 'f', 'e', 'l'}};
@@ -47,4 +53,34 @@ public class Task4 {
 		
 		return max;
 	}
+	
+	// Most efficient way i can think of + reading file
+	/*
+	public static void main(String[] args) throws IOException {
+		InputStreamReader streamReader = new InputStreamReader(new FileInputStream(new File("input.txt")), Charset.forName("UTF-8"));
+		int currentChar = streamReader.read();
+		int lastChar = ' ';
+		int length = 0;
+		int maxLength = 0;
+		
+		while(lastChar != -1) {
+			if(currentChar == ' ' || currentChar == -1) {
+				if(lastChar != ' ') System.out.println(maxLength);
+				maxLength = 0;
+				length = 0;
+			} else {
+				if("aeiouäöüAEIOUÄÖÜ".indexOf((char) currentChar) == -1) {
+					length++;
+				} else length = 0;
+				
+				if(maxLength < length) maxLength = length;
+			}
+			
+			lastChar = currentChar;
+			currentChar = streamReader.read();
+		}
+		
+		streamReader.close();
+	}
+	*/
 }
