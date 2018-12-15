@@ -21,7 +21,9 @@ public class Task4 {
 	public static int[][] transpose(int[][] matrix) {
 		for(int i = 0; i < matrix.length; i++) {
 			for(int j = i + 1; j < matrix[i].length; j++) {
-				matrix[j][i] = matrix[i][j]; 
+				int h = matrix[j][i];
+				matrix[j][i] = matrix[i][j];
+				matrix[i][j] = h;
 			}
 		}
 		

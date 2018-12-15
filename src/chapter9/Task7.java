@@ -21,7 +21,7 @@ public class Task7 {
 	}
 	
 	public static String convert(float x, int n) {
-		StringBuilder sb = new StringBuilder(valueOf(x, n));
+		StringBuilder sb = new StringBuilder(valueOf(x, n));		
 
 		int maxLength = sb.indexOf(".") + n;
 		
