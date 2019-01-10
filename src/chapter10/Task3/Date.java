@@ -18,7 +18,7 @@ public class Date {
 
     public int getDayOfYear() {
         int[] monthDays = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
-        int leapYear = isLeapYear() ? 1 : 0;
+        int leapYear = isLeapYear() && month > 2 ? 1 : 0;
         return monthDays[month - 1] + day - 1 + leapYear;
     }
 

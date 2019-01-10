@@ -17,16 +17,18 @@ public class Set {
         return this;
     }
 
-    public Set merge(Set set) {
+    public Set intersect(Set set) {
         for(int i = 0; i < set.binary.length; i++) {
-            if(set.binary[i] == 1) binary[i] = 1;
+            if(set.binary[i] == 1 && binary[i] == 1) binary[i] = 1;
+            else binary[i] = 0;
         }
         return this;
     }
 
-    public Set intersect(Set set) {
+    public Set merge(Set set) {
         for(int i = 0; i < set.binary.length; i++) {
-            if(binary[i] == 0 || set.binary[i] == 0) binary[i] = 0;
+            if(binary[i] == 1 || set.binary[i] == 1) binary[i] = 1
+            else binary[i] = 0;
         }
         return this;
     }
