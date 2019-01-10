@@ -27,7 +27,7 @@ public class Set {
 
     public Set merge(Set set) {
         for(int i = 0; i < set.binary.length; i++) {
-            if(binary[i] == 1 || set.binary[i] == 1) binary[i] = 1
+            if(binary[i] == 1 || set.binary[i] == 1) binary[i] = 1;
             else binary[i] = 0;
         }
         return this;
