@@ -6,33 +6,21 @@ import chapter12.Element;
 public class ReorderedList extends List {
     public ReorderedList reorder() {
 
-        List negativeNumbers = new List();
-        List positiveNumbers = new List();
+        Element last = null;
+        Element node = this.head;
 
-        Element element = head;
-
-        while(element != null) {
-            Element newElement = new Element(element.value);
-
-            if(element.value < 0) negativeNumbers.push(newElement);
-            else positiveNumbers.push(newElement);
-
-            element = element.next;
+        while(node != null) {
+            if(node.value < 0 && last != null) {
+                last.next = node.next;
+                node.next = head;
+                head = node;
+                node = last.next;
+            } else {
+                last = node;
+                node = node.next;
+            }
         }
         
-        // get end of negativeNumbers list
-        if(negativeNumbers.head != null) {
-            Element tail = negativeNumbers.head;
-
-            while(tail.next != null) {
-                tail = tail.next;
-            }
-
-            tail.next = positiveNumbers.head;
-
-            head = negativeNumbers.head;
-        }
-
         return this;
     }
 }

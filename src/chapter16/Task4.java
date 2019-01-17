@@ -14,7 +14,7 @@ public class Task4 {
 
     private static long factorial(long number) {
         long sum = number--;
-        while(number > 0) sum *= number--;
+        while(number > 1) sum *= number--;
         return sum;
     }
 
