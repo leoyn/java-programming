@@ -65,7 +65,9 @@ public class LifoMemory {
 	public Object pop() {				
 		for(int i = this.memory.length - 1; i >= 0; i--) {
 			if(this.memory[i] != null) {
-				return this.memory[i];
+				Object poppedElement = this.memory[i];
+				this.memory[i] = null;
+				return poppedElement;
 			}
 		}
 		
