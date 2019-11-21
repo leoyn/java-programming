@@ -6,10 +6,25 @@ import java.util.Calendar;
 import semester3.practice.account.Exceptions.*;
 
 public class Account {
+
+	private static int instanceCounter;
+
 	private BigDecimal balance;
 	private Calendar creationDate;
+	private Person owner;
+
+
+	public static Account create(Person owner) {
+		instanceCounter++;
+		return new Account(owner);
+	}
+
+	public static int countInstances() {
+		return instanceCounter;
+	}
 	
-	public Account() {
+	private Account(Person owner) {
+		this.owner = owner;
 		this.balance = BigDecimal.ZERO;
 		this.creationDate = Calendar.getInstance();
 	}
@@ -24,6 +39,14 @@ public class Account {
 	
 	public BigDecimal getBalance() {
 		return this.balance;
+	}
+
+	public Person getOwner() {
+		return this.owner;
+	}
+
+	public void setOwner(Person owner) {
+		this.owner = owner;
 	}
 	
 	public void withdraw(BigDecimal amount) throws InsufficientBalanceException, AmountTooLowException {
