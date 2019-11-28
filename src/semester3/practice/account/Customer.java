@@ -1,10 +1,10 @@
 package semester3.practice.account;
 
-public class Person {
+public class Customer {
     private String firstname;
     private String lastname;
 
-    public Person(String firstname, String lastname) {
+    public Customer(String firstname, String lastname) {
         this.firstname = firstname;
         this.lastname = lastname;
     }
