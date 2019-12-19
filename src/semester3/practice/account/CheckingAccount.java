@@ -21,6 +21,14 @@ public class CheckingAccount extends Account {
         this.dispoLimit = dispoLimit;
     }
 
+    public int compareTo(CheckingAccount account) {
+        if(this.getBalance() == BigDecimal.ZERO && account.getBalance() == BigDecimal.ZERO) {
+            return this.getDispoLimit().compareTo(account.getDispoLimit());
+        }
+        
+        return this.getBalance().compareTo(account.getBalance());
+    }
+
     public void withdraw(BigDecimal amount) throws InsufficientBalanceException, AmountTooLowException {
         if(amount.compareTo(BigDecimal.ZERO) > 0) {
             BigDecimal newBalance = getBalance().subtract(amount);

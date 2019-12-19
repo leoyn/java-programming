@@ -5,7 +5,7 @@ import java.util.Calendar;
 
 import semester3.practice.account.Exceptions.*;
 
-public abstract class Account {
+public class Account implements Comparable<Account> {
 
 	private static int instanceCounter;
 
@@ -42,6 +42,10 @@ public abstract class Account {
 
 	public void setOwner(Customer owner) {
 		this.owner = owner;
+	}
+
+	public int compareTo(Account account) {
+		return this.getBalance().compareTo(account.getBalance());
 	}
 
 	public void withdraw(BigDecimal amount) throws InsufficientBalanceException, AmountTooLowException {
