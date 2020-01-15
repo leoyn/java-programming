@@ -5,6 +5,7 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
 
 public class ForkJoinAddEvenNumbersCalculator extends RecursiveTask<Long> {
+    private static final long serialVersionUID = 1L;
     public static final ForkJoinPool FORK_JOIN_POOL = new ForkJoinPool();
     public static long threshold = 250_000L;
     static int iterations = 0; // zur Steuerung der Zeit für joins
