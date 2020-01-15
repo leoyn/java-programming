@@ -22,11 +22,12 @@ public class DatabaseConnection {
         statement.executeQuery("CREATE TABLE customer (" + 
         "   customerId INT PRIMARY KEY," + 
         "   firstname VARCHAR(20)," + 
-        "   lastname VARCHAR(20)" + 
+        "   lastname VARCHAR(20)," + 
+        "   password VARCHAR(128)" + 
         ")");
 
-        statement.executeQuery("INSERT INTO customer (customerId, firstname, lastname) VALUES(1, 'Max', 'Musterman')");
-        statement.executeQuery("INSERT INTO customer (customerId, firstname, lastname) VALUES(2, 'Ahri', 'Musterman')");
+        statement.executeQuery("INSERT INTO customer (customerId, firstname, lastname, password) VALUES(1, 'Max', 'Musterman', '1234')");
+        statement.executeQuery("INSERT INTO customer (customerId, firstname, lastname, password) VALUES(2, 'Ahri', 'Musterman', 'secret')");
 
         statement.executeQuery("CREATE TABLE account (" + 
         "   accountId INT PRIMARY KEY," + 
