@@ -25,8 +25,8 @@ public class DatabaseConnection {
         "   lastname VARCHAR(20)" + 
         ")");
 
-        statement.executeQuery("INSERT INTO customer VALUES(1, 'Max', 'Musterman')");
-        statement.executeQuery("INSERT INTO customer VALUES(2, 'Ahri', 'Musterman')");
+        statement.executeQuery("INSERT INTO customer (customerId, firstname, lastname) VALUES(1, 'Max', 'Musterman')");
+        statement.executeQuery("INSERT INTO customer (customerId, firstname, lastname) VALUES(2, 'Ahri', 'Musterman')");
 
         statement.executeQuery("CREATE TABLE account (" + 
         "   accountId INT PRIMARY KEY," + 
@@ -36,11 +36,11 @@ public class DatabaseConnection {
         "   customerId INT NOT NULL REFERENCES customer(customerId)" + 
         ")");
 
-        statement.executeQuery("INSERT INTO account VALUES(1, 'C', 100, 1000, 1)");
-        statement.executeQuery("INSERT INTO account VALUES(2, 'S', 2000, NULL, 1)");
+        statement.executeQuery("INSERT INTO account (accountId, type, balance, dispoLimit, customerId) VALUES(1, 'C', 100, 1000, 1)");
+        statement.executeQuery("INSERT INTO account (accountId, type, balance, dispoLimit, customerId) VALUES(2, 'S', 2000, NULL, 1)");
 
-        statement.executeQuery("INSERT INTO account VALUES(3, 'C', 200, 200, 2)");
-        statement.executeQuery("INSERT INTO account VALUES(4, 'C', 10, 0, 2)");
+        statement.executeQuery("INSERT INTO account (accountId, type, balance, dispoLimit, customerId) VALUES(3, 'C', 200, 200, 2)");
+        statement.executeQuery("INSERT INTO account (accountId, type, balance, dispoLimit, customerId) VALUES(4, 'C', 10, 0, 2)");
         
         databaseConnection.disconnect();
     }
