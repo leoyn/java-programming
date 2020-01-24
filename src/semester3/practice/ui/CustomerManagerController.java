@@ -43,7 +43,7 @@ public class CustomerManagerController {
                     errorLbl.setText("Customer ID must not include non-numberic characters.");
                 }
             }
-       });
+        });
 
         saveBtn.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
             public void handle(ActionEvent evt) {

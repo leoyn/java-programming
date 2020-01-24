@@ -14,9 +14,9 @@ import java.sql.SQLException;
 public class CustomerManager extends Application {
 	private DatabaseConnection databaseConnection;
 	private static String[] ARGS;
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 		ARGS = args;
-        Application.launch(CustomerManager.class);
+		Application.launch(CustomerManager.class);
 	}
 	
 	public void init() throws SQLException {
@@ -24,7 +24,7 @@ public class CustomerManager extends Application {
 		databaseConnection.connect();
 	}
 
-    public void start(Stage stage) throws IOException {
+	public void start(Stage stage) throws IOException {
 		// load fxml
 		final URL fxmlFilePath = getClass().getResource("assets/CustomerView.fxml"); 
 		final FXMLLoader loader = new FXMLLoader(fxmlFilePath);
