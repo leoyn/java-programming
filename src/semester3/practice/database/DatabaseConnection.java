@@ -1,10 +1,13 @@
 package semester3.practice.database;
 
+import oracle.jdbc.pool.OracleDataSource;
+import semester3.practice.account.Customer;
+
 import java.sql.SQLException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
-
-import oracle.jdbc.pool.OracleDataSource;
 
 public class DatabaseConnection {
     private String host;
@@ -56,7 +59,38 @@ public class DatabaseConnection {
         OracleDataSource dataSource = new OracleDataSource();
         dataSource.setURL(host);
         connection = dataSource.getConnection(user, password);
+        connection.setAutoCommit(false);
         return connection;
+    }
+
+    public Customer getCustomerById(int customerId) throws SQLException, SQLException {
+        PreparedStatement statement = connection.prepareStatement("SELECT firstname, lastname FROM customer WHERE customerId = ?");
+        statement.setInt(1, customerId);
+        statement.execute();
+        ResultSet result = statement.getResultSet();
+        if(!result.next()) return null;
+        connection.commit();
+        return new Customer(customerId, result.getString("firstname"), result.getString("lastname"));
+    }
+
+    public void createCustomer(Customer customer) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO customer (customerId, firstname, lastname) VALUES(?, ?, ?)");
+        statement.setInt(1, customer.getId());
+        statement.setString(2, customer.getFirstname());
+        statement.setString(3, customer.getLastname());
+        
+        statement.execute();
+        connection.commit();
+    }
+
+    public void updateCustomer(Customer customer) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("UPDATE customer SET firstname = ?, lastname = ? WHERE customerId = ?");
+        statement.setString(1, customer.getFirstname());
+        statement.setString(2, customer.getLastname());
+        statement.setInt(3, customer.getId());
+
+        statement.execute();
+        connection.commit();
     }
 
     public void disconnect() throws SQLException {
