@@ -1,0 +1,12 @@
+#customerId {
+	-fx-text-fill: blue;
+	-fx-max-width: 100;
+}
+
+#errorLbl {
+	-fx-text-fill: red;
+}
+
+#successLbl {
+	-fx-text-fill: green;
+}

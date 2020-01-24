@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" stylesheets="@CustomerView.css">
+	<padding>
+		<Insets top="15" bottom="15" right="15" left="15"/>
+	</padding>
+
+	<top>
+		<GridPane hgap="10" vgap="10">
+			<Label text="Customer ID:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+			<TextField fx:id="customerIdTextField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+			<Label text="Firstname:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+			<TextField fx:id="customerFirstnameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+			<Label text="Lastname:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+			<TextField fx:id="customerLastnameTextField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+		</GridPane>
+	</top>
+
+	<center>
+		<TextArea fx:id="commentArea">
+			<BorderPane.margin>
+				<Insets top="15" bottom="15"/>
+			</BorderPane.margin>
+		</TextArea>
+	</center>
+
+	<bottom>
+		<VBox>
+			<Label fx:id="successLbl" text="" />
+			<Label fx:id="errorLbl" text="" />
+			<HBox>
+				<Button fx:id="loadBtn" text="📁Load"/>
+				<Button fx:id="saveBtn" text="💾Save"/>
+				<Button fx:id="createBtn" text="🆕Create"/>
+			</HBox>
+		</VBox>
+	</bottom>
+</BorderPane>
