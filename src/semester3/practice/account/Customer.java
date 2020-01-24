@@ -3,14 +3,21 @@ package semester3.practice.account;
 import java.util.ArrayList;
 
 public class Customer {
+    private int id;
     private String firstname;
     private String lastname;
     private Password password;
     public ArrayList<Account> accounts;
 
+    public Customer(int id, String firstname, String lastname) {
+        this(firstname, lastname);
+        this.id = id;
+    }
+
     public Customer(String firstname, String lastname) {
         this.accounts = new ArrayList<Account>();
         this.firstname = firstname;
+        this.lastname = lastname;
     }
 
     public boolean changePassword(String oldPassword, String newPassword) {
@@ -35,5 +42,9 @@ public class Customer {
 
     public String getLastname() {
         return this.lastname;
+    }
+
+    public int getId() {
+        return this.id;
     }
 }
