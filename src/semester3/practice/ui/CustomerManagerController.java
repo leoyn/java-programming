@@ -11,16 +11,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.beans.InvalidationListener;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.*;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Observable;
 
 public class CustomerManagerController {
     private DatabaseConnection databaseConnection;
