@@ -10,6 +10,7 @@ import javafx.scene.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 public class CustomerManager extends Application {
 	private DatabaseConnection databaseConnection;
@@ -29,6 +30,7 @@ public class CustomerManager extends Application {
 		final URL fxmlFilePath = getClass().getResource("assets/CustomerView.fxml"); 
 		final FXMLLoader loader = new FXMLLoader(fxmlFilePath);
 		loader.setController(new CustomerManagerController(databaseConnection)); // has to be before loader.load() otherwise it won't work
+		loader.setResources(ResourceBundle.getBundle("semester3.practice.ui.assets.CustomerResources"));
 		final Parent root = loader.load();
 		
 		// create window

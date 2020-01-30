@@ -23,11 +23,14 @@
 	</top>
 
 	<center>
-		<TextArea fx:id="commentArea">
-			<BorderPane.margin>
-				<Insets top="15" bottom="15"/>
-			</BorderPane.margin>
-		</TextArea>
+		<VBox>
+			<Label fx:id="accountListLbl"></Label>
+			<ListView fx:id="accountList">
+				<BorderPane.margin>
+					<Insets top="15" bottom="15"/>
+				</BorderPane.margin>
+			</ListView>
+		</VBox>
 	</center>
 
 	<bottom>
@@ -35,9 +38,9 @@
 			<Label fx:id="successLbl" text="" />
 			<Label fx:id="errorLbl" text="" />
 			<HBox>
-				<Button fx:id="loadBtn" text="📁Load"/>
-				<Button fx:id="saveBtn" text="💾Save"/>
-				<Button fx:id="createBtn" text="🆕Create"/>
+				<Button fx:id="loadBtn" text="%ui.button.load"/>
+				<Button fx:id="saveBtn" text="%ui.button.save"/>
+				<Button fx:id="createBtn" text="%ui.button.create"/>
 			</HBox>
 		</VBox>
 	</bottom>

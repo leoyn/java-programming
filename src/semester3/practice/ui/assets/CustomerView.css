@@ -1,6 +1,5 @@
 #customerId {
 	-fx-text-fill: blue;
-	-fx-max-width: 100;
 }
 
 #errorLbl {

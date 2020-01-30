@@ -48,6 +48,10 @@ public class Account implements Comparable<Account> {
 		return this.getBalance().compareTo(account.getBalance());
 	}
 
+	public void setBalance(BigDecimal balance) {
+		this.balance = balance;
+	}
+
 	public void withdraw(BigDecimal amount) throws InsufficientBalanceException, AmountTooLowException {
 		if (amount.compareTo(BigDecimal.ZERO) > 0) {
 			if (this.balance.compareTo(amount) < 0)
