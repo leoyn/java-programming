@@ -28,20 +28,20 @@ public class DatabaseConnection {
 
         Statement statement = connection.createStatement();
 
-        statement.executeQuery("DROP TABLE account");
-        statement.executeQuery("DROP TABLE customer");
+        statement.executeUpdate("DROP TABLE account");
+        statement.executeUpdate("DROP TABLE customer");
 
-        statement.executeQuery("CREATE TABLE customer (" + 
+        statement.executeUpdate("CREATE TABLE customer (" + 
         "   customerId INT PRIMARY KEY," + 
         "   firstname VARCHAR(20)," + 
         "   lastname VARCHAR(20)," + 
         "   password VARCHAR(128)" + 
         ")");
 
-        statement.executeQuery("INSERT INTO customer (customerId, firstname, lastname, password) VALUES(1, 'Max', 'Musterman', '1234')");
-        statement.executeQuery("INSERT INTO customer (customerId, firstname, lastname, password) VALUES(2, 'Ahri', 'Musterman', 'secret')");
+        statement.executeUpdate("INSERT INTO customer (customerId, firstname, lastname, password) VALUES(1, 'Max', 'Musterman', '1234')");
+        statement.executeUpdate("INSERT INTO customer (customerId, firstname, lastname, password) VALUES(2, 'Ahri', 'Musterman', 'secret')");
 
-        statement.executeQuery("CREATE TABLE account (" + 
+        statement.executeUpdate("CREATE TABLE account (" + 
         "   accountId INT PRIMARY KEY," + 
         "   type CHAR(1) NOT NULL," + 
         "   balance DECIMAL(18,2) NOT NULL," + 
@@ -50,11 +50,11 @@ public class DatabaseConnection {
         "   customerId INT NOT NULL REFERENCES customer(customerId)" + 
         ")");
 
-        statement.executeQuery("INSERT INTO account (accountId, type, balance, dispoLimit, customerId) VALUES(1, 'C', 100, 1000, 1)");
-        statement.executeQuery("INSERT INTO account (accountId, type, balance, interest, customerId) VALUES(2, 'S', 2000, 1, 1)");
+        statement.executeUpdate("INSERT INTO account (accountId, type, balance, dispoLimit, customerId) VALUES(1, 'C', 100, 1000, 1)");
+        statement.executeUpdate("INSERT INTO account (accountId, type, balance, interest, customerId) VALUES(2, 'S', 2000, 1, 1)");
 
-        statement.executeQuery("INSERT INTO account (accountId, type, balance, dispoLimit, customerId) VALUES(3, 'C', 200, 200, 2)");
-        statement.executeQuery("INSERT INTO account (accountId, type, balance, dispoLimit, customerId) VALUES(4, 'C', 10, 0, 2)");
+        statement.executeUpdate("INSERT INTO account (accountId, type, balance, dispoLimit, customerId) VALUES(3, 'C', 200, 200, 2)");
+        statement.executeUpdate("INSERT INTO account (accountId, type, balance, dispoLimit, customerId) VALUES(4, 'C', 10, 0, 2)");
         
         databaseConnection.disconnect();
     }
