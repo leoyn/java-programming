@@ -115,10 +115,10 @@ public class DatabaseConnection {
             Account account;
             switch(result.getString("type")) {
                 case "C":
-                    account = new SavingsAccount(customer, new BigDecimal(result.getInt("dispoLimit")));
+                    account = new CheckingAccount(customer, new BigDecimal(result.getInt("dispoLimit")));
                     break;
                 case "S":
-                    account = new CheckingAccount(customer, new BigDecimal(result.getInt("interest")));
+                    account = new SavingsAccount(customer, new BigDecimal(result.getInt("interest")));
                     break;
                 default:
                     account = new Account(customer);

@@ -1,6 +1,7 @@
 package semester3.practice.ui;
 
 import semester3.practice.account.Account;
+import semester3.practice.account.CheckingAccount;
 import semester3.practice.account.Customer;
 import semester3.practice.account.SavingsAccount;
 import semester3.practice.account.Exceptions.AmountTooLowException;
@@ -36,7 +37,9 @@ public class CustomerManagerController {
     }
 
     public void initialize() {
-        accountListLbl.textProperty().bind(customerFirstnameTextField.textProperty());
+        customerFirstnameTextField.textProperty().addListener((value, oldValue, newValue) -> {
+            accountListLbl.setText(newValue + " accounts:");
+        });
 
         loadBtn.addEventHandler(ActionEvent.ACTION, new myButtonHandler()::myHandle);
         createBtn.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
@@ -84,11 +87,26 @@ public class CustomerManagerController {
                     customerLastnameTextField.setText(customer.getLastname());
 
                     ArrayList<Account> accounts = databaseConnection.getAccountsForCustomer(customer);
-
                     ObservableList<String> data = FXCollections.observableArrayList();
+
                     accounts.forEach(account->{
-                        String type = account.getClass() == SavingsAccount.class ? "Savings" : "Checking";
-                        data.add(type + " - " + account.getBalance() + "€");
+                        String output;
+
+                        if(account.getClass() == SavingsAccount.class) {
+                            output = "Savings";
+                            output += " - ";
+                            output += "Interest: " + ((SavingsAccount) account).getInterest() + "%";
+                        } else if(account.getClass() == CheckingAccount.class) {
+                            output = "Checking";
+                            output += " - ";
+                            output += "Dispo-Limit: " + ((CheckingAccount) account).getDispoLimit() + "€";
+                        } else {
+                            output = "Other";
+                        }
+
+                        output += " - Balance: " + account.getBalance() + "€";
+
+                        data.add(output);
                     });
 
                     accountList.setItems(data);
