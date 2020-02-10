@@ -1,9 +1,9 @@
-package semester3.practice.account;
+package semester3.account;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
 
-import semester3.practice.account.Exceptions.*;
+import semester3.account.Exceptions.*;
 
 public class Account implements Comparable<Account> {
 

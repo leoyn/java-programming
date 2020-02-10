@@ -1,8 +1,8 @@
-package semester3.practice.account;
+package semester3.account;
 
 import java.math.BigDecimal;
 
-import semester3.practice.account.Exceptions.*;
+import semester3.account.Exceptions.*;
 
 public class CheckingAccount extends Account {
     private BigDecimal dispoLimit;

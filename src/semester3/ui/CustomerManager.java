@@ -1,6 +1,6 @@
-package semester3.practice.ui;
+package semester3.ui;
 
-import semester3.practice.database.DatabaseConnection;
+import semester3.database.DatabaseConnection;
 
 import javafx.application.*;
 import javafx.stage.*;

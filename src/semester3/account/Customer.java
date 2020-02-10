@@ -1,4 +1,4 @@
-package semester3.practice.account;
+package semester3.account;
 
 import java.util.ArrayList;
 

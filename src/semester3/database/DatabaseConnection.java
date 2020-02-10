@@ -1,11 +1,11 @@
-package semester3.practice.database;
+package semester3.database;
 
 import oracle.jdbc.pool.OracleDataSource;
-import semester3.practice.account.Account;
-import semester3.practice.account.CheckingAccount;
-import semester3.practice.account.Customer;
-import semester3.practice.account.SavingsAccount;
-import semester3.practice.account.Exceptions.AmountTooLowException;
+import semester3.account.Account;
+import semester3.account.CheckingAccount;
+import semester3.account.Customer;
+import semester3.account.SavingsAccount;
+import semester3.account.Exceptions.AmountTooLowException;
 
 import java.sql.SQLException;
 import java.math.BigDecimal;
